@@ -89,6 +89,12 @@ def load_dataset(split, directory="", show=False, option=ImageProcessingOption.H
     return X, y
 
 
+def load_datasets(directory="", option=ImageProcessingOption.Histogram):
+    X_train, y_train = load_dataset(split="train", directory=directory, option=option)
+    X_test, y_test = load_dataset(split="test", directory=directory, option=option)
+    return X_train, X_test, y_train, y_test
+
+
 if __name__ == "__main__":
     X_train, y_train = load_dataset(split="train")
     print(X_train.shape, y_train.shape)
